@@ -14,3 +14,7 @@ names(test)
 test[,Item_Outlet_Sales:= NA]
 combi = rbind(train,test) #rbind is used to combine data
 dim(combi)
+ggplot(train) + geom_histogram(aes(train$Item_Outlet_Sales), binwidth = 100, fill = "darkgreen") + xlab("Item_Outlet_Sales")
+#Indepandent Variables
+p1 = ggplot(combi) + geom_histogram(aes(Item_Weight), binwidth = 0.5, fill = "blue")
+plot_grid(p1,nrow = 1)
