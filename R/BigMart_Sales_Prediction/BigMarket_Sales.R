@@ -22,3 +22,8 @@ p3 = ggplot(combi) + geom_histogram(aes(Item_MRP), binwidth = 1, fill = "blue")
 plot_grid(p1,p2,p3, nrow = 1)
 ggplot(combi %>% group_by(Item_Fat_Content) %>% summarise(Count = n())) + 
   geom_bar(aes(Item_Fat_Content,Count), stat = "Identity", fill = "blue")
+combi$Item_Fat_Content[combi$Item_Fat_Content == "LF"] = "Low Fat"
+combi$Item_Fat_Content[combi$Item_Fat_Content == "low fat"] = "Low Fat"
+combi$Item_Fat_Content[combi$Item_Fat_Content == "reg"] = "Regular"
+ggplot(combi %>% group_by(Item_Fat_Content) %>% summarise(Count = n())) + 
+  geom_bar(aes(Item_Fat_Content,Count), stat = "Identity", fill = "blue")
