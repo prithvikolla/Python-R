@@ -32,7 +32,4 @@ p5 = ggplot(combi %>% group_by(Outlet_Identifier) %>% summarise(Count = n())) + 
 
 p6 = ggplot(combi %>% group_by(Outlet_Size) %>% summarise(Count = n())) + geom_bar(aes(Outlet_Size,Count), stat = "identity", fill = "blue")+ geom_label(aes(Outlet_Size,Count,label = Count), vjust = 0.5)+ theme(axis.test.x = element_text(angle = 45,hjust = 1))
 
-secondrow = plot_grid(p5,p6,nrow = 1) 
-
-plot_grid(p4,secondrow,ncol = 1)
 
